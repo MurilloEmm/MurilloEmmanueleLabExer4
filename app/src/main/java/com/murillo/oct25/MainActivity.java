@@ -49,12 +49,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
-        final File folder = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
-        File file = new File(folder, "company.txt");
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            String choice = description[i];
-            fos.write(choice.getBytes());
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
             dialog.setIcon(logo[i]);
             dialog.setTitle(verName[i]);
@@ -70,9 +64,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             });
             dialog.create().show();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();        } catch (IOException e) {
-            e.printStackTrace();
         }
+
     }
-}
+
